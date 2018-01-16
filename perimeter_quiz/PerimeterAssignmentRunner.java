@@ -2,7 +2,7 @@ import edu.duke.*;
 import java.io.File;
 
 public class PerimeterAssignmentRunner {
-    
+
     public double getPerimeter (Shape s) {
         // Start with totalPerim = 0
         double totalPerim = 0.0;
@@ -37,7 +37,7 @@ public class PerimeterAssignmentRunner {
 
     public double getLargestSide(Shape s) {
         // Return the longest side in the Shape S.
-        
+
         // Start with largestSide = 0
         double largestSide = 0.0;
         // Start wth prevPt = the last point 
@@ -58,10 +58,10 @@ public class PerimeterAssignmentRunner {
 
     public double getLargestX(Shape s) {
         // Return the largest x value over all the points in the Shape s.
-                
+
         // Start with largestX = 0
         double largestX = s.getLastPoint().getX();
-        
+
         // For each point currPt in the shape,
         for (Point currPt : s.getPoints()) {
             // Find distance from prevPt point to currPt 
@@ -83,13 +83,13 @@ public class PerimeterAssignmentRunner {
         DirectoryResource dr = new DirectoryResource();
 
         double largestPerimeter = 0;
-        
+
         // Iterate over these files. 
         for (File f : dr.selectedFiles()) {
-            
+
             // For each File f, it converts the file into a FileResource
             FileResource fr = new FileResource(f);
-        
+
             // Then it creates a Shape from the FileResource
             Shape s = new Shape(fr);
 
@@ -99,7 +99,7 @@ public class PerimeterAssignmentRunner {
             if (length > largestPerimeter) {
                 largestPerimeter = length;
             }
-        }        
+        }
         return largestPerimeter;
     }
 
@@ -113,13 +113,13 @@ public class PerimeterAssignmentRunner {
 
         double largestPerimeter = 0;
         File largestPerimeterF = null;
-        
+
         // Iterate over these files. 
         for (File f : dr.selectedFiles()) {
-            
+
             // For each File f, it converts the file into a FileResource
             FileResource fr = new FileResource(f);
-        
+
             // Then it creates a Shape from the FileResource
             Shape s = new Shape(fr);
 
@@ -130,29 +130,29 @@ public class PerimeterAssignmentRunner {
                 largestPerimeter = length;
                 largestPerimeterF = f;
             }
-        }        
+        }
         return largestPerimeterF;
     }
-    
+
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
         System.out.println("perimeter = " + length);
-        
+
         int total = getNumPoints(s);
         System.out.println("numPoints = " + total);
-        
+
         double avg = getAverageLength(s);
         System.out.println("AverageLength = " + avg);
-        
+
         double side = getLargestSide(s);
         System.out.println("LargestSide = " + side);
-        
+
         double x = getLargestX(s);
         System.out.println("LargestX = " + x);
     }
-    
+
     public void testPerimeterMultipleFiles() {
         // Put code here
         double largestPerimeter = getLargestPerimeterMultipleFiles();
