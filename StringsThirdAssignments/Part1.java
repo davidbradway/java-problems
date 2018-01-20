@@ -266,7 +266,7 @@ public class Part1 {
         System.out.println("total: " + count);
         
         count = 0;
-
+        System.out.println("CG Ration greater than .35:");
         for (String s : sr.data()){    
             if (cgRatio(s) > 0.35) {
                  System.out.println(s);
@@ -314,10 +314,9 @@ public class Part1 {
 
         System.out.println("with real DNA.");
         FileResource fr = new FileResource("brca1line.fa");
-        dna = fr.asString();
+        dna = fr.asString().toUpperCase();
         sr = getAllGenes(dna);
         System.out.println("number of genes " + sr.size());
         processGenes(sr);
-
     }
 }
