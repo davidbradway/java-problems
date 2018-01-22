@@ -26,6 +26,7 @@ public class WhichCountriesExport {
         for (CSVRecord record : parser) {
             //Look at the "Country" column
             String country_col = record.get("Country");
+             
             //Check if it contains country
             if (country_col.contains(country)) {
                 return country_col + ": " + record.get("Exports") + ": " + record.get("Value (dollars)");
@@ -92,7 +93,7 @@ public class WhichCountriesExport {
     public void tester() {
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
-
+        
         // For example, using the file exports_small.csv 
         // and the country Germany, 
         // the program returns the string: Germany: motor vehicles, machinery, chemicals: $1,547,000,000,000
@@ -123,5 +124,22 @@ public class WhichCountriesExport {
         // United States $1,610,000,000,000
         parser = fr.getCSVParser();
         bigExporters(parser, "$999,999,999");
+        
+        System.out.println("what is third country below");
+        parser = fr.getCSVParser();
+        listExportersTwoProducts(parser, "fish", "nuts");
+        
+        parser = fr.getCSVParser();
+        System.out.println(numberOfExporters(parser, "sugar"));
+        
+        parser = fr.getCSVParser();
+        System.out.println(countryInfo(parser, "Nauru"));
+        
+        System.out.println("what is second country below");
+        parser = fr.getCSVParser();
+        bigExporters(parser, "$999,999,999,999");
+        
+
+
     }
 }
