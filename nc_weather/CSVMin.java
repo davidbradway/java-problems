@@ -106,7 +106,7 @@ public class CSVMin {
         // All the Temperatures on the coldest day were: blah...
         String coldestFileName = fileWithColdestTemperature();
         System.out.println("Coldest day was in the file " + coldestFileName);
-        FileResource fr = new FileResource("data/2014/" + coldestFileName);
+        FileResource fr = new FileResource("data/2013/" + coldestFileName);
         CSVRecord coldest = coldestHourInFile(fr.getCSVParser());
         System.out.println("Coldest temperature on that day was " + Double.parseDouble(coldest.get("TemperatureF")));
         System.out.println("All the Temperatures on the coldest day were: ");

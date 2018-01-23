@@ -138,7 +138,17 @@ public class WhichCountriesExport {
         System.out.println("what is second country below");
         parser = fr.getCSVParser();
         bigExporters(parser, "$999,999,999,999");
-        
+
+        System.out.println("what is second country below");
+        parser = fr.getCSVParser();
+        listExportersTwoProducts(parser, "cotton", "flowers");
+                
+        parser = fr.getCSVParser();
+        System.out.println(numberOfExporters(parser, "cocoa"));
+
+        System.out.println("what is third country below");
+        parser = fr.getCSVParser();
+        bigExporters(parser, "$999,999,999,999");
 
 
     }
